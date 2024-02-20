@@ -1,0 +1,11 @@
+---
+interface Props {
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="tileContainer">
+  {images.map((image) => <img class="tile" src={image} />)}
+</div>

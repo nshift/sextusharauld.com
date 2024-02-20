@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Ox">
+  <main>
+    <img
+      class="picture"
+      src="https://images.squarespace-cdn.com/content/v1/50bce2dfe4b01f474524eb8e/1618605603700-D28PEZ78CRPHK8H0LHY7/Raphael-Olivier-profile-cappadocia-03.jpg"
+    />
+    <div class="text">
+      <h1>About</h1>
+      <p>
+        My name is Raphael Olivier, I’m a French photographer based in Seoul,
+        South Korea, and working on assignements worldwide.
+        <br />
+        <br />I specialize in shooting architecture, interiors, hotels,
+        corporate and industrial reportage as well as landscape photography.
+        <br />
+        <br />A life of travels has made me flexible in a wide variety of
+        situations and able to achieve results in all sorts of challenging
+        environements. Clients have trusted me on hundreds of assignments in
+        over 35 countries during the past decade.
+        <br />
+        <br />On my free time I enjoy travelling off the beaten path and
+        exploring urban spaces, as well as hiking in nature. I also like a cold
+        beer.
+        <br />
+        <br />Feel free to get in touch for bookings in Asia or elsewhere:
+        <br />
+        <br />Email: hello@raphaelolivier.com
+        <br />
+        <br />IG: Raphael_Olivier
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .picture {
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    main {
+      padding-left: 0;
+      grid-template-columns: 42% 1fr;
+      margin-top: 2rem;
+    }
+    .text {
+      padding-right: 20%;
+    }
+  }
+</style>
