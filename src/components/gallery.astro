@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 interface Props {
   images: string[];
 }
@@ -7,5 +8,15 @@ const { images } = Astro.props;
 ---
 
 <div class="tileContainer">
-  {images.map((image) => <img class="tile" src={image} />)}
+  {
+    images.map((image) => (
+      <Image
+        class="tile"
+        src={image}
+        alt="Description"
+        inferSize
+        loading="lazy"
+      />
+    ))
+  }
 </div>

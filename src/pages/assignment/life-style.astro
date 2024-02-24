@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Gallery from "../../components/gallery.astro";
+import { lifeStyle as images } from "../../content.json";
+---
+
+<Layout title="Ox">
+  <main>
+    <Gallery images={images} />
+  </main>
+</Layout>

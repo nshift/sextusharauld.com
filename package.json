@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "sextusharauld.com",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.4",
+    "@aws-sdk/client-s3": "^3.521.0",
     "astro": "^4.4.0",
     "typescript": "^5.3.3"
   },

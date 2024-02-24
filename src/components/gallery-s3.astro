@@ -1,0 +1,34 @@
+---
+import Gallery from "./gallery.astro";
+import { Environment } from "../environment";
+// import { food as images } from "../../content.json";
+import { S3Client, ListObjectsCommand } from "@aws-sdk/client-s3";
+interface Props {
+  folder: string;
+}
+
+const { folder } = Astro.props;
+
+const bucketUrl = new URL(
+  `https://${Environment.BucketName()}.s3.${Environment.Region()}.amazonaws.com`
+);
+
+const getImages = async (folder: string) => {
+  const client = new S3Client({
+    signer: { sign: async (request) => request },
+    region: Environment.Region(),
+  });
+  const Bucket = Environment.BucketName();
+  const command = new ListObjectsCommand({ Bucket, Prefix: `${folder}/` });
+  const { Contents } = await client.send(command);
+  return (
+    Contents?.filter((object) => object.Size ?? 0 > 0).map(
+      (object) => new URL(bucketUrl.toString() + object.Key)
+    ) ?? []
+  );
+};
+
+const images = await getImages(folder);
+---
+
+<Gallery images={images.map((url) => url.toString())} />
