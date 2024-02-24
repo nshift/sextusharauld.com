@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.5.4",
     "@aws-sdk/client-s3": "^3.521.0",
     "astro": "^4.4.0",
+    "astro-aws-amplify": "^0.0.9",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
