@@ -1,12 +1,21 @@
 ---
+import { Environment } from "../environment";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+const bucketUrl = new URL(
+  `https://s3.${Environment.Region()}.amazonaws.com/${Environment.BucketName()}/`
+);
 ---
 
-<Layout title="Ox">
+<Layout title="About | Sextus Harauld">
   <main>
-    <img
+    <Image
       class="picture"
-      src="https://images.squarespace-cdn.com/content/v1/50bce2dfe4b01f474524eb8e/1618605603700-D28PEZ78CRPHK8H0LHY7/Raphael-Olivier-profile-cappadocia-03.jpg"
+      src=`${bucketUrl}harauldsextus.jpg`
+      alt="Harauld Sextus"
+      inferSize
+      loading="lazy"
     />
     <div class="text">
       <h1>About</h1>
@@ -43,6 +52,7 @@ import Layout from "../layouts/Layout.astro";
   }
   .picture {
     width: 100%;
+    height: auto;
   }
 
   @media only screen and (min-width: 1024px) {
@@ -53,6 +63,7 @@ import Layout from "../layouts/Layout.astro";
     }
     .text {
       padding-right: 20%;
+      padding-left: 3rem;
     }
   }
 </style>

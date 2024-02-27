@@ -15,14 +15,28 @@ const isIndex = () => currentPath == "/";
 
 <header>
   <div>
-    <h1>Ox | Photographer</h1>
-    <p style="color: var(--secondary-color)">Based in Hua Hin Thailand</p>
+    <a href="/" class="RootLink"><h1>Sextus Harauld</h1></a>
+    <p style="color: var(--secondary-color); line-height: 0.5rem;">
+      Based in Thailand
+    </p>
   </div>
   <ul role="list" class="links">
     <li>
       <a
-        class={isCurrent("/personal") || isIndex() ? "current" : ""}
-        href="/personal">Personal</a
+        class={isCurrent("/assignment/portrait") || isIndex() ? "current" : ""}
+        href="/assignment/portrait">Portrait</a
+      >
+    </li>
+    <li>
+      <a
+        class={isCurrent("/assignment/wedding") ? "current" : ""}
+        href="/assignment/wedding">Wedding</a
+      >
+    </li>
+    <li>
+      <a
+        class={isCurrent("/assignment/life-style") ? "current" : ""}
+        href="/assignment/life-style">Lifestyle</a
       >
     </li>
     <li>
@@ -32,21 +46,8 @@ const isIndex = () => currentPath == "/";
       >
     </li>
     <li>
-      <a
-        class={isCurrent("/assignment/life-style") ? "current" : ""}
-        href="/assignment/life-style">Life style</a
-      >
-    </li>
-    <li>
-      <a
-        class={isCurrent("/assignment/music") ? "current" : ""}
-        href="/assignment/music">Music</a
-      >
-    </li>
-    <li>
-      <a
-        class={isCurrent("/assignment/wedding") ? "current" : ""}
-        href="/assignment/wedding">Wedding</a
+      <a class={isCurrent("/personal") ? "current" : ""} href="/personal"
+        >Personal</a
       >
     </li>
     <li>
@@ -58,9 +59,15 @@ const isIndex = () => currentPath == "/";
       >
     </li>
     <li>
-      <a href="https://www.facebook.com/oxoner" target="_blank"
+      <a href="https://www.facebook.com/sextusharauld" target="_blank"
         ><Svg class="icon" size={iconSize} path={svgPaths.facebook} /></a
       >
     </li>
   </ul>
 </header>
+
+<style>
+  .RootLink {
+    text-decoration: none;
+  }
+</style>
