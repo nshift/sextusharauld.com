@@ -10,7 +10,7 @@ interface Props {
 const { folder } = Astro.props;
 
 const bucketUrl = new URL(
-  `https://${Environment.BucketName()}.s3.${Environment.Region()}.amazonaws.com`
+  `https://s3.${Environment.Region()}.amazonaws.com/${Environment.BucketName()}/`
 );
 
 const getImages = async (folder: string) => {

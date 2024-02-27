@@ -1,11 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Gallery from "../../components/gallery.astro";
-import { wedding as images } from "../../content.json";
+import Gallery from "../../components/gallery-s3.astro";
 ---
 
 <Layout title="Ox">
   <main>
-    <Gallery images={images} />
+    <Gallery folder="wedding" />
   </main>
 </Layout>
