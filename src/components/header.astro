@@ -14,23 +14,21 @@ const isIndex = () => currentPath == "/";
 ---
 
 <header>
-  <div>
-    <a href="/" class="RootLink"><h1>Sextus Harauld</h1></a>
-    <p style="color: var(--secondary-color); line-height: 0.5rem;">
-      Based in Thailand
-    </p>
+  <div class="HeaderMobileTop">
+    <div>
+      <a href="/" class="RootLink"><h1>Sextus Harauld</h1></a>
+      <p style="color: var(--secondary-color); line-height: 0.5rem;">
+        photographer - art - director - food stylist
+      </p>
+    </div>
+    <p class="Menu">Menu</p>
   </div>
-  <ul role="list" class="links">
+
+  <ul role="list" class="MenuList links">
     <li>
       <a
-        class={isCurrent("/assignment/portrait") || isIndex() ? "current" : ""}
+        class={isCurrent("/assignment/portrait") ? "current" : ""}
         href="/assignment/portrait">Portrait</a
-      >
-    </li>
-    <li>
-      <a
-        class={isCurrent("/assignment/wedding") ? "current" : ""}
-        href="/assignment/wedding">Wedding</a
       >
     </li>
     <li>
@@ -66,8 +64,68 @@ const isIndex = () => currentPath == "/";
   </ul>
 </header>
 
+<script>
+  const menus = document.querySelectorAll(".Menu");
+  menus.forEach((menu) => {
+    menu.addEventListener("click", () => {
+      const menuLists = document.querySelectorAll(".MenuList");
+      menuLists.forEach((menuList) => {
+        if (menuList.classList.contains("visible")) {
+          menuList.classList.remove("visible");
+        } else {
+          menuList.classList.add("visible");
+        }
+      });
+    });
+  });
+</script>
+
 <style>
+  .HeaderMobileTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .Menu {
+    font-weight: 700;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  .MenuList {
+    display: none;
+  }
+  .MenuList.visible {
+    display: flex;
+    visibility: visible;
+    padding: 2rem 0;
+  }
+  .MenuList a {
+    display: flex;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .MenuList a.current {
+    color: var(--primary-color);
+  }
   .RootLink {
     text-decoration: none;
+  }
+  .RootLink,
+  .RootLink:hover,
+  .RootLink h1,
+  .RootLink h1:hover {
+    cursor: pointer !important;
+  }
+  @media only screen and (min-width: 1024px) {
+    .Menu {
+      display: none;
+    }
+    .MenuList {
+      display: flex;
+      visibility: visible;
+    }
   }
 </style>
